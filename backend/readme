@@ -1,15 +1,6 @@
 # Project Name
 
-The API for this project is designed specifically for the purpose of the technical test. It provides the following endpoints:
-
-- `/api/users`: This endpoint allows you to retrieve a list of users.
-
-- `/api/users/{username}`: This endpoint allows you to retrieve information about a specific user.
-
-- `/api/chat`: This endpoint allows you to retrieve a list of chat messages.
-- `/api/chat/{sender}`: This endpoint allows you to retrieve chat messages sent by a specific user.
-
-
+The API for this project is designed specifically for the purpose of the technical test.
 
 ## Sql tables
 
