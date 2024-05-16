@@ -87,8 +87,8 @@ export default function AboutPage() {
 						<CardBody className="overflow-y-auto h-96 gap-4">
 							{messages.map((msg) => (
                                 //que mantenga el tamaño del card
-								<Card key={msg.id} className="w-full overflow-visible rounded-2xl">
-									<CardBody className={ msg.type === 'moderator' ? 'bg-primary text-white' : 'bg-gray text-white'}>
+								<Card key={msg.id} className={`${ msg.type === 'moderator' ? 'bg-primary text-white' : 'bg-gray text-white'} w-full overflow-visible rounded-2xl`}>
+									<CardBody >
 										<p>{msg.message}</p>
 										<p className="text-xs text-right">{msg.sender} - {msg.time} - {msg.type}</p>
 									</CardBody>
