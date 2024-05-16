@@ -1,14 +1,5 @@
-// routes.js
-
 import express from 'express';
-import { initSocket } from '../socketHandler.js';
-
 const router = express.Router();
-
-// Inicializar el servidor de Socket.IO
-import http from 'http';
-const server = http.createServer();
-const io = initSocket(server); // Inicializar el servidor de Socket.IO
 
 
 /**
@@ -44,8 +35,7 @@ router.get('/', (req, res) => {
  *                   example: connected
  */
 router.get('/connectionStatus', (req, res) => {
-    const isConnected = Boolean(io.engine.clientsCount);
-    res.json({ isConnected });
+    res.render('connectionStatus', { status: 'connected' });
 });
 
 export default router;

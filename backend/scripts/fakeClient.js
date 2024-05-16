@@ -1,6 +1,6 @@
 import io from 'socket.io-client';
 // URL del servidor de Socket.IO
-const SERVER_URL = 'http://localhost:3000';
+const SERVER_URL = 'http://localhost:3001';
 
 // Conectar al servidor de Socket.IO
 const socket = io(SERVER_URL);

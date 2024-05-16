@@ -11,7 +11,7 @@ export class ChatModel {
     }
 
     static async findBySender(sender) {
-        const [rows] = await pool.query('SELECT * FROM chat WHERE sender = ?', [sender]);
+        const rows = await pool.query('SELECT * FROM chat WHERE sender = ?', [sender]);
         if (!rows) {
             return null;
         }
@@ -19,11 +19,13 @@ export class ChatModel {
     }
 
     async save() {
-        await pool.query('INSERT INTO chat SET ?', this);
+        const row = await pool.query('INSERT INTO chat SET ?', this);
+        this.id = row.insertId;
     }
 
     static async findAll() {
         const rows = await pool.query('SELECT * FROM chat');
         return rows;
     }
+
 }

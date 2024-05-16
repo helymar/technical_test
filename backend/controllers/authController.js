@@ -39,8 +39,13 @@ export const register = async (req, res) => {
     try {
         const existingUser = await UserModel.findByUsername(username);
 
-        existingUser ? res.status(400).json({ message: 'User already exists' })
-        : await new UserModel(username, hashPassword(password), name).save();
+        if (existingUser) {
+            return res.status(400).json({ message: 'User already exists' });
+        }else{
+            await new UserModel(username, hashPassword(password), name, type).save();
+            res.status(200).json({ message: 'User registered successfully' });
+        }
+       
     }
     catch (error) {
         res.status(500).json({ message: error.message });
